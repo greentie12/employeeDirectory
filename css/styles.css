@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap");
+
+:root {
+  --primary-color: #333;
+  --seconadry-color: #707070;
+  --border-color: #cccccc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  max-width: 1300px;
+  padding: 2rem 1rem;
+  margin: auto;
+}
+
+header h1 {
+  color: var(--seconadry-color);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 0.5rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.emp-avatar {
+  margin-right: 0.8rem;
+}
+
+.emp-avatar img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.emp-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.emp-name {
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.emp-info p {
+  color: var(--seconadry-color);
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+/* modal below */
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 3rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 5px;
+  width: 425px; /* Could be more or less, depending on screen size */
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.modal-info h4 {
+  color: var(--primary-color);
+}
+
+.modal-info p {
+  color: var(--seconadry-color);
+  font-size: 0.9rem;
+}
+
+.modal-info img {
+  width: 125px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.line-break {
+  border-bottom: 1px solid var(--border-color);
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: var(--primary-color);
+  float: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
