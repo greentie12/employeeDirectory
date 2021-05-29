@@ -3,7 +3,7 @@ const SEARCH_URL = "https://randomuser.me/api/?nat=us&results=12";
 const main = document.getElementById("main");
 const dialog = document.getElementById("myModal");
 
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 let employeeArr = [];
 
@@ -18,7 +18,6 @@ async function retreiveEmployees(url) {
 
 function appendEmployees(employees) {
   employeeArr = employees;
-  console.log(employeeArr);
 
   employeeArr.forEach((employee, index) => {
     let { name, email, location, picture } = employee;
@@ -35,7 +34,7 @@ function appendEmployees(employees) {
       <div class="emp-info">
         <h4 class="emp-name">${fullName}</h4>
         <p>${email}</p>
-        <p>${location.state}</p>
+        <p class="location">${location.state}</p>
       </div>
   	`;
     main.appendChild(employeeArticle);
@@ -53,9 +52,9 @@ const displayModal = (index) => {
   } = employeeArr[index];
 
   let fullName = `${name.first} ${name.last}`;
-  let fullAddress = `${street}, ${state} ${postcode}`;
+  let fullAddress = `${street.number} ${street.name}, ${state} ${postcode}`;
   let editDob = new Date(dob.date);
-  editDob = `${editDob.getMonth()}/${editDob.getMonth()}/${editDob.getMonth()}`;
+  editDob = `${editDob.getMonth()}/${editDob.getDate()}/${editDob.getYear()}`;
 
   dialog.innerHTML = `
     <div class="modal-content">
@@ -68,7 +67,7 @@ const displayModal = (index) => {
         <div class="line-break"></div>
         <p>${phone}</p>
         <p>${fullAddress}</p>
-        <p>Birthday: ${editDob}/</p>
+        <p>Birthday: ${editDob}</p>
       </div>
     </div>
   `;
@@ -79,7 +78,7 @@ const mainEvent = (e) => {
   if (e.target !== main) {
     let card = e.target.closest(".card");
     let index = card.getAttribute("data-index");
-    console.log(card);
+
     displayModal(index);
   }
 };
@@ -89,9 +88,6 @@ main.addEventListener("click", mainEvent);
 // Modal Popup action below
 // Get the modal
 var modal = document.querySelector(".modal");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
 
 dialog.addEventListener("click", (e) => {
   if (e.target.classList.contains("close")) {
@@ -105,3 +101,7 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+/* -- Search functions below --  */
+
+// Autocomplet below
