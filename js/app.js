@@ -2,7 +2,6 @@ const SEARCH_URL = "https://randomuser.me/api/?nat=us&results=12";
 
 const main = document.getElementById("main");
 const dialog = document.getElementById("myModal");
-
 const span = document.getElementsByClassName("close")[0];
 
 let employeeArr = [];
@@ -40,68 +39,3 @@ function appendEmployees(employees) {
     main.appendChild(employeeArticle);
   });
 }
-
-const displayModal = (index) => {
-  let {
-    name,
-    dob,
-    phone,
-    email,
-    location: { city, street, state, postcode },
-    picture,
-  } = employeeArr[index];
-
-  let fullName = `${name.first} ${name.last}`;
-  let fullAddress = `${street.number} ${street.name}, ${state} ${postcode}`;
-  let editDob = new Date(dob.date);
-  editDob = `${editDob.getMonth()}/${editDob.getDate()}/${editDob.getYear()}`;
-
-  dialog.innerHTML = `
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class="modal-info">
-        <img src="${picture.large}" alt="${fullName}" />
-        <h4>${fullName}</h4>
-        <p>${email}</p>
-        <p>${city}</p>
-        <div class="line-break"></div>
-        <p>${phone}</p>
-        <p>${fullAddress}</p>
-        <p>Birthday: ${editDob}</p>
-      </div>
-    </div>
-  `;
-  modal.style.display = "block";
-};
-
-const mainEvent = (e) => {
-  if (e.target !== main) {
-    let card = e.target.closest(".card");
-    let index = card.getAttribute("data-index");
-
-    displayModal(index);
-  }
-};
-
-main.addEventListener("click", mainEvent);
-
-// Modal Popup action below
-// Get the modal
-var modal = document.querySelector(".modal");
-
-dialog.addEventListener("click", (e) => {
-  if (e.target.classList.contains("close")) {
-    modal.style.display = "none";
-  }
-});
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
-
-/* -- Search functions below --  */
-
-// Autocomplet below

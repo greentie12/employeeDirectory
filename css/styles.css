@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap");
 
 :root {
-  --primary-color: #333;
+  --primary-color: #444;
   --seconadry-color: #707070;
   --border-color: #cccccc;
+  --background-color: #f3f3f3;
+  --card-color: #fafafa;
 }
 
 * {
@@ -13,6 +15,7 @@
 }
 
 body {
+  background-color: var(--background-color);
   font-family: "Noto Sans JP", sans-serif;
   max-width: 1300px;
   padding: 2rem 1rem;
@@ -39,7 +42,8 @@ header h1 {
   font-size: 1.1rem;
   color: var(--primary-color);
   width: 400px;
-  padding: 0.5rem 1rem;
+  height: 2.5rem;
+  padding-left: 1rem;
   border: 1px solid var(--border-color);
   border-radius: 5px;
 }
@@ -57,6 +61,7 @@ header h1 {
 }
 
 .card {
+  background-color: var(--card-color);
   border: 1px solid var(--border-color);
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
@@ -111,17 +116,19 @@ header h1 {
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  position: relative;
+  background-color: var(--background-color);
   margin: 10% auto; /* 15% from the top and centered */
-  padding: 3rem 1rem;
+  padding: 1rem 1rem 2.5rem;
   border: 2px solid var(--border-color);
   border-radius: 5px;
-  width: 425px; /* Could be more or less, depending on screen size */
+  width: 425px;
+  min-width: 300px; /* Could be more or less, depending on screen size */
 }
 
 .modal-info {
@@ -153,19 +160,47 @@ header h1 {
   width: 80%;
 }
 
+#index {
+  visibility: hidden;
+}
+
 /* The Close Button */
+
+.closeDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .close {
-  color: var(--primary-color);
-  float: right;
-  font-size: 1.2rem;
+  /* float: right; */
+
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
+.turn {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  width: 93%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close,
+.prev,
+.next {
+  color: var(--primary-color);
+  transition: transform 0.3s ease-in;
   cursor: pointer;
+}
+
+.close:hover,
+.close:focus,
+.prev:hover,
+.next:hover {
+  transform: scale(1.3);
+  text-decoration: none;
 }
 
 @media screen and (min-width: 1024px) {

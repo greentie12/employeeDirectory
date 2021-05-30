@@ -1,16 +1,14 @@
 let input = document.getElementById("search");
 
 function searchEmployees() {
-  // Declare variables
   let data, txtValue;
-  console.log("sucess");
-
   let filter = input.value.toUpperCase();
   let article = main.getElementsByTagName("article");
-  const location = document.querySelectorAll(".location");
   let name = document.querySelectorAll(".emp-name");
 
-  // Loop through all table rows, and hide those who don't match the search query
+  /*Loop through the cards h4.textContent, 
+  and hide those who don't match the search query
+  */
   for (let i = 0; i < article.length; i++) {
     data = article[i];
 
