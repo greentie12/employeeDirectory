@@ -65,7 +65,7 @@ header h1 {
   border: 1px solid var(--border-color);
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  width: 410px;
+  width: 400px;
   display: flex;
   align-items: center;
   padding: 1.5rem;
@@ -100,7 +100,7 @@ header h1 {
 
 .emp-info p {
   color: var(--seconadry-color);
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-right: 1rem;
 }
 
@@ -211,14 +211,15 @@ header h1 {
     align-items: center;
     margin: 0 4rem 1rem;
   }
+
+  #search {
+    width: 300px;
+    margin-right: 2rem;
+  }
 }
 
 @media screen and (min-width: 1296px) {
   header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     margin: 0 0.5rem 1rem;
   }
 }
